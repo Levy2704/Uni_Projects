@@ -1,0 +1,19 @@
+#version 330 core
+out vec4 FragColour;
+
+// get values from vertex shader
+
+in vec4 vertexColour;
+in vec2 texCoord;
+
+//Global variable for the shaders
+uniform sampler2D texture3;
+uniform sampler2D texture2;
+ 
+void main()
+{
+// Will get relevant pixel from texture to display 
+// On polygon 
+FragColour = mix(texture(texture3, texCoord), texture(texture2, texCoord), 0.5)*vertexColour;
+
+}

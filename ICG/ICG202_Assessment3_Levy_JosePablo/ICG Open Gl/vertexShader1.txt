@@ -1,0 +1,16 @@
+#version 330 core
+
+layout(location=0)in vec3 aPos;
+
+//want to pass this data onto the next phase(fragment)
+out vec4 vertexColour;
+
+void main()
+{
+	//vertex shader MUST set gl_Position(which is a vec4)
+	gl_Position = vec4(aPos, 1);//use apos to set x,y,z of gl_position, set w to 1
+	
+	//set value of vertexColour to pass onto fragment shader
+	vertexColour = vec4(1.0, 0.0, 0.0, 1.0);//rgba
+
+}

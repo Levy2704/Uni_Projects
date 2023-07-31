@@ -1,0 +1,16 @@
+#version 330 core
+out vec4 FragColour;
+
+//get values from vertex shader
+in vec4 vertexColour;
+in vec2 texCoord;
+
+//sampler holds reference to texture slot we want
+uniform sampler2D texture1;
+
+void main(){
+	
+	//will get relevant pixel from texture to display
+	//on polygon
+	FragColour = texture(texture1, texCoord)*vertexColour;
+}

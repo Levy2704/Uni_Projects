@@ -1,0 +1,33 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Net.Sockets;
+using System.Text;
+
+namespace Windows_Forms_Chat
+{
+    public enum playerState
+        {
+            player1,
+            player2,
+            spectacting
+        }
+    public enum clientState
+    {
+        login,
+        chatting,
+        playing
+    }
+    public class ClientSocket
+    {
+        //add other attributes to this, e.g username, what state the client is in etc
+        public string username;
+        public string password;
+        public clientState state = clientState.login;
+        public playerState pstate = playerState.spectacting;
+        public bool yourTurn = false;
+        public bool mod = false;
+        public Socket socket;
+        public const int BUFFER_SIZE = 2048;
+        public byte[] buffer = new byte[BUFFER_SIZE];
+    }
+}
